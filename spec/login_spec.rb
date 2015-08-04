@@ -9,7 +9,7 @@ describe 'Login' do
   end
 
   it 'success' do
-    @login.with('poleary','ac0n3x72')
+    @login.with(ENV['username'],ENV['password'])
     @login.landed_on_task_page?.should be_truthy
   end
 
