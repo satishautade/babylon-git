@@ -9,6 +9,7 @@ ENV['browser_version'] ||= '8'
 
 ENV['SAUCE_USERNAME'] = 'satishautade'
 ENV['SAUCE_ACCESS_KEY'] = 'b38d994a-40a5-4ac9-84de-1e23c4a26457'
+ENV['processes'] = '2'
 ENV['tunnel'] ||= ''
 
 unless ENV['tunnel'].empty?
