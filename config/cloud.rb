@@ -11,8 +11,17 @@ ENV['SAUCE_USERNAME'] = 'satishautade'
 ENV['SAUCE_ACCESS_KEY'] = 'b38d994a-40a5-4ac9-84de-1e23c4a26457'
 ENV['tunnel'] ||= ''
 
-if ENV['tunnel'].empty?
+unless ENV['tunnel'].empty?
   require 'sauce'
+
+  Sauce.config do |c|
+    c[:start_tunnel] = true
+    #this path has to be concrete.setting this path through env var will not help much
+    c[:sauce_connect_4_executable] = '/home/satish/Downloads/sc-4.3.10-linux/bin/sc'
+  end
+
+  #sauce_connect_4_executable
   Sauce::Utilities::Connect.start
-  ENV['base_url'] = 'http://aconex-local:8443'
+  ENV['base_url'] = 'https://aconex-local:8443'
+  ENV['password'] = 'ac0n3x72'
 end
