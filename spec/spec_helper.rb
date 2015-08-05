@@ -3,6 +3,8 @@ require 'sauce_whisk'
 
 RSpec.configure do |config|
 
+  config.expect_with(:rspec) { |c| c.syntax = :should }
+
   config.before(:each) do |example|
     case ENV['host']
       when 'saucelabs'
